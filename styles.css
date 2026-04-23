@@ -1,0 +1,328 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3498db;
+    --primary-color-hover: #2980b9;
+    --secondary-color: #2ecc71;
+    --secondary-color-hover: #27ae60;
+    --text-color: #333;
+    --background-color: #f4f4f4;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    position: relative;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1.3rem;
+    font-family: inherit;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+nav {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-hover));
+    color: #fff;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2.5px solid var(--secondary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.add-btn-container:hover {
+    background-color: var(--secondary-color-hover);
+    transform: scale(1.1);
+}
+
+.add-todo-btn {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    filter: brightness(0) invert(1) ;
+}
+
+h1 {
+  font-family:  cursive;
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-left: 7rem;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+}
+
+.filter {
+    width: 25%;
+    background: linear-gradient(180deg, var(--primary-color), var(--primary-color-hover));
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    max-height: 90vh;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    border-radius: 6px;
+    text-align: left;
+    font-weight: 500;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(4px);
+}
+
+.filter-display {
+    width: 80%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.all,
+.priority,
+.completed,
+.future-plans {
+    width: 100%;
+    padding: 3rem;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    overflow: auto;
+    max-height: 80vh;
+}
+
+.all h2,
+.priority h2,
+.completed h2,
+.future-plans h2 {
+    margin-bottom: 30px;
+} 
+
+.all.active,
+.priority.active,
+.completed.active,
+.future-plans.active {
+    display: block;
+}
+
+
+.todo {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 1.8rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--primary-color);
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.todo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    color: #2c3e50;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.details {
+    display: flex;
+    margin-left: 0;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ecf0f1;
+}
+
+.details p {
+    font-size: 1.3rem;
+    color: #555;
+    margin: 0;
+    font-weight: 500;
+}
+
+.details button {
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    background: linear-gradient(135deg, var(--secondary-color), #27ae60);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: auto;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 4px rgba(46, 204, 113, 0.3);
+}
+
+.details button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.4);
+}
+
+.details button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(46, 204, 113, 0.3);
+}
+
+.more-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.todo:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    border-left-color: var(--primary-color-hover);
+}
+
+#todo-form {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#todo-form button {
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-hover));
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+#todo-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+}
+
+#todo-form button:active {
+    transform: translateY(0);
+}
+
+.priority {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}

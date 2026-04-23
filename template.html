@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todozz!</title>
+</head>
+
+<body>
+  <nav>
+    <h2>Todozz!</h2>
+    <h1>Your personal todo list</h1>
+    <div class="add-btn-container">
+      <img src="./assets/plus-solid-full.svg" alt="Add Todo" class="add-todo-btn" id="add-todo-btn"
+        onclick="document.getElementById('todo-dialog').showModal()">
+    </div>
+  </nav>
+  <dialog id="todo-dialog">
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Enter a new todo..." required>
+
+      <textarea name="todo-description" id="todo-description" class="todo-description"
+        placeholder="Enter a description for the todo... (optional)" cols="36" rows="10"></textarea>
+
+      <input type="time" id="todo-time" placeholder="Enter a time..." required>
+
+      <select name="Priority" id="sort-priority" class="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <button type="submit">Add Todo</button>
+    </form>
+  </dialog>
+
+  <main class="container">
+    <audio id="alarm-sound" src="./assets/freesound_community-alarm-clock-90867.mp3"></audio>
+    <div class="filter">
+      <button class="filter-btn" id="all-btn">All</button>
+      <button class="filter-btn" id="priority">Priority</button>
+      <button class="filter-btn" id="completed-btn">Completed</button>
+      <button class="filter-btn" id="future-plans">Future Plans</button>
+    </div>
+    <div class="filter-display">
+      <div class="all active">
+        <h2>All Todos</h2>
+        <div class="todos" id="all-todos">
+          <!-- content will be inserted here -->
+          <!-- default content -->
+          <!-- <div class="todo">
+            <h3>Example Todo</h3>
+            <div class="details">
+              <p>This is an example todo. You can add your own todos using the add btn above.</p>
+              <div class="more-details">
+                <p>Time: 12:00 PM</p>
+                <p>Priority: High</p>
+              </div>
+              <button class="delete-btn" id="delete-btn">Delete</button>
+            </div>
+          </div> -->
+          <p style="font-size: small; font-style: italic;">Add a todo to begin your prioritized workflow!</p>
+        </div>
+      </div>
+      <div class="priority">
+        <h2>Priority Todos</h2>
+        <div class="todos" id="priority-todos">
+          <!-- content will be inserted here -->
+        </div>
+      </div>
+      <div class="completed">
+        <h2>Completed Todos</h2>
+        <div class="todos" id="completed-todos">
+          <!-- content will be inserted here -->
+        </div>
+      </div>
+      <div class="future-plans">
+        <h2>Future Plans</h2>
+        <div class="todos" id="future-plans-todos">
+          <!-- content will be inserted here -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+
+</html>
